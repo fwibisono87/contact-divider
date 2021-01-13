@@ -3,6 +3,7 @@ import random
 import os
 import glob
 
+manager_name_index = 1 ##change this if you need to alter the manager name index
 
 print("welcome to")
 print("fwibisono's contact divider!")
@@ -15,6 +16,8 @@ print("enter 2 to open data folder")
 print("enter 3 to purge output and start processing")
 print("enter 0 to exit")
 control = input(">>")
+
+
 if control == "1":
     pass
     print("="*80)
@@ -34,6 +37,7 @@ elif control == "3":
     except PermissionError:
         print("Program is unable to purge output folder. Please run in administrator or remove files manually.")
         input("To enforce data integrity, program will exit. Please enter to continue")
+        quit()
 elif control == "0":
     quit()
 contactsList = []
@@ -64,7 +68,7 @@ for panit in managersList:
         secret_number = random.randint(0, len(contactsList)-1)
         current_contactslist.append(contactsList[secret_number])
         del contactsList[secret_number]
-    print("your peserts are %s " % current_contactslist)
+    print("your contacts are %s " % current_contactslist)
     filename = "data/output/"+panit
     filename_csv = filename +".csv"
     pathList.append(filename)
